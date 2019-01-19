@@ -1,0 +1,16 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ title }} </mat-panel-title>
+    <mat-icon>library_books</mat-icon>
+  </mat-expansion-panel-header>
+
+  <form [formGroup]="gifForm" (ngSubmit)="onSubmit()">
+    <label>Search Gif: </label><br />
+    <input type="text" formControlName="gif" /><br />
+    <button type="submit">Search</button>
+  </form>
+  <div *ngFor="let g of giphies">
+    <img (click)="createGif(gifElem.src)" width="100px" height="100px" #gifElem src="{{g.images.original.url}}" /><br />
+  </div>
+
+</mat-expansion-panel>

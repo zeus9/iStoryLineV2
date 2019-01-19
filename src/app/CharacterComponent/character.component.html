@@ -1,0 +1,32 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ title }} </mat-panel-title>
+    <mat-icon>face</mat-icon>
+  </mat-expansion-panel-header>
+  <!-- <mat-selection-list #chars> -->
+  <!--
+    <mat-list-option *ngFor="let char of characters">
+        {{ char }}
+      </mat-list-option>
+      {{ chars.selectedOptions.selected.}}
+    </mat-selection-list>
+  -->
+  <mat-selection-list
+    #chars
+    [(ngModel)]="selectedOptions"
+    (ngModelChange)="onSelect($event)"
+  >
+    <mat-list-option *ngFor="let char of characters" [value]="char">
+      {{ char }}
+    </mat-list-option>
+  </mat-selection-list>
+  <!--
+    <mat-form-field>
+        <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Age">
+    </mat-form-field>
+  -->
+</mat-expansion-panel>

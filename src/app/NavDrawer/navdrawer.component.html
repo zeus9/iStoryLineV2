@@ -1,0 +1,91 @@
+<header>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/bebas" type="text/css" />
+  <h2>iStoryline-ASU</h2>
+
+  <span style="padding:20px;margin-right:40px;width:300px">
+    <mat-button-toggle style="margin-right:40px" class="dataSetbutton" value="add" (click)="dataset.toggle()">
+      <mat-icon>add</mat-icon>
+      <label>Please Choose a Movie</label>
+    </mat-button-toggle>
+  </span>
+</header>
+
+<div style="float:left;">
+  <character-app [DataSet]="DataSet" (characterHide)="onCharacterHide($event)" (characterShow)="onCharacterShow($event)"></character-app><br />
+  <text-component (textElement)="createText($event)"></text-component><br />
+  <shapes-app (svgValue)="onSvgClicked($event)"></shapes-app><br />
+  <story-app (gifElement)="createGif($event)"></story-app> <br />
+  <color-app (colorChange)="onColorChange($event)"></color-app><br />
+  <!-- <gradient-app></gradient-app> -->
+</div>
+<div id="graphContainer" style="float:left;">
+  <div id="gifs" style="float:left;position:relative;z-index:9">
+    <div id="gif-container" style="float:left;position:relative;z-index:9" ngDraggable>
+
+    </div>
+    <div ngDraggable id="textContainer"></div>
+    <!-- TODO: Increase size of shapes -->
+    <div id="shapes" style="position:absolute;">
+      <svg *ngIf="showTriangle" ngDraggable #svgVal id="circle" width="100" height="100">
+        <!-- <path d=" M 10 25
+                          L 10 75
+                          L 60 75
+                          L 10 25"
+        stroke="red" stroke-width="2" fill="red" opacity="0.3" /> -->
+        <path fill="pink" stroke-width="2" opacity="0.5" stroke="pink" d="m49.109714,24.23141c20.034994,-57.477384 98.532758,0 0,73.899494c-98.532758,-73.899494 -20.034994,-131.376878 0,-73.899494z" />
+      </svg>
+      <svg *ngIf="showSquare" ngDraggable id="square" width="100" height="100">
+        <!-- <path d=" M 10 25
+                          L 10 75 10 55
+                          L 60 75 60 105
+                          L 60 25 60 
+                          L 10 25"
+        stroke="blue" opacity="0.3" stroke-width="2" #svgVal id="rectangle" fill="blue" /> -->
+        <rect width="200" height="200" style="fill:red;stroke-width:2;stroke:darkred;opacity:0.3" />
+      </svg>
+      <br />
+      <svg *ngIf="showRectangle" ngDraggable width="200" height="100">
+        <!-- <path d=" M 10 25
+                          L 10 75
+                          L 80 75
+                          L 80 25
+                          L 10 25"
+        stroke="blue" stroke-width="2" fill="blue" opacity="0.3" /> -->
+        <rect width="300" height="100" style="fill:blue;stroke-width:2;stroke:blue;opacity:0.3" />
+      </svg>
+
+      <svg *ngIf="showCircle" ngDraggable width="100" height="100" id="circle">
+        <circle cx="40" cy="50" r="40" style="fill:indianred" stroke="indianred" stroke-width="2" opacity="0.3"></circle>
+      </svg>
+    </div>
+    <div id="plain-field" width="100px" height="100px"></div>
+    <line-chart [hideCharacters]="hideCharacters" [DataSet]="DataSet" [showCharacters]="showCharacters" [newColor]="colorChange"
+      [newCharacter]="newCharacter"></line-chart>
+  </div>
+
+  <mat-drawer-container class="sidenav-container" autosize style="margin-top:200px;">
+
+  </mat-drawer-container>
+
+</div>
+
+<!-- <draggable-app></draggable-app> -->
+<!-- TODO: Fix the button alignment to be above nav drawer -->
+<div>
+  <mat-drawer #dataset class="sidenav" mode="side" position="end" autosize>
+    <button mat-raised-button color="secondary" (click)="clickLRRH()">
+      <mat-icon>description</mat-icon>
+      Little Red <br />Riding Hood
+    </button><br />
+    <button mat-raised-button color="secondary" (click)="clickBB()">
+      <mat-icon>description</mat-icon>
+      The Curious Case <br /> of Benjamin Button
+    </button>
+    <br />
+  </mat-drawer>
+</div>
+
+<!-- <sub-template [hidden]="!showText"></sub-template> -->
+
+<!-- <line-chart></line-chart> -->

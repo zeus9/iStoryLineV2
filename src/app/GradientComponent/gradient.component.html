@@ -1,0 +1,26 @@
+ <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> {{ title }} </mat-panel-title>
+      <mat-icon>color_lens</mat-icon>
+    </mat-expansion-panel-header>
+  
+    <form [formGroup]="colorGradientForm" (ngSubmit)="onSubmit()">
+      <label>Character Name:</label><br />
+      <input type="text" formControlName="character" /><br />
+      <label>Color 1: </label><br />
+      <input
+      
+        [(colorPicker)]="gradient1"
+        [style.background]="gradient"
+        formControlName="gradient1"
+      /><br />
+      <label>Color 2: </label><br />
+      <input 
+      [(colorPicker)]="gradient2"
+      [style.background]="gradient"
+      formControlName="gradient2"
+    /><br />
+      <button type="submit">Change</button>
+    </form>
+  </mat-expansion-panel>
+   

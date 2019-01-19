@@ -1,0 +1,13 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{title}}
+    </mat-panel-title>
+    <mat-icon>text_format</mat-icon>
+  </mat-expansion-panel-header>
+  <form [formGroup]="textForm" (ngSubmit)="onSubmit()">
+    <label>Provide text to create: </label><br />
+    <input type="text" formControlName="text" /><br />
+    <button type="submit">Create</button>
+  </form>
+</mat-expansion-panel>

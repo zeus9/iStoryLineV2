@@ -1,0 +1,16 @@
+#drag-1,
+#drag-2 {
+  width: 2em;
+  text-align: "center";
+  text-anchor: "middle";
+  height: 1em;
+  margin: 10%;
+  background-color: #29e;
+  color: black;
+  font-size: "20px";
+  border-radius: 0.75em;
+  padding: 4%;
+  user-select: none;
+  /* -webkit-transform: translate(0px, 0px);
+  transform: translate(0px, 0px); */
+}

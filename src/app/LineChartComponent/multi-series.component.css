@@ -1,0 +1,22 @@
+.axis--x path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 4.2px;
+}
+
+.flashback {
+  animation: RotateAnimation 0.2s infinite;
+}
+
+@keyframes RotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

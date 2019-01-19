@@ -1,0 +1,57 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ title }} </mat-panel-title>
+    <mat-icon>format_shapes</mat-icon>
+  </mat-expansion-panel-header>
+  <!--
+    <mat-form-field>
+        <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput placeholder="Age">
+    </mat-form-field>
+  -->
+
+  <!--
+    <canvas id="canvas" width="400" height="300">
+      This text is displayed if your browser does not support HTML5 Canvas.
+    </canvas>
+  -->
+  <!-- triangle -->
+  <div #svgVal>
+    <p>Love Track</p>
+    <svg padding="5px" (click)="clickSvg($event)" id="triangle" width="100" height="100">
+      <!-- <path d=" M 10 25
+                L 10 75
+                L 60 75
+                L 10 25" stroke="#23f6f6" id="triangle"
+        stroke-width="2" fill="#23f6f6" opacity="0.5" /> -->
+      <path fill="pink" id="triangle" stroke-width="2" opacity="0.5" stroke="pink" d="m49.109714,24.23141c20.034994,-57.477384 98.532758,0 0,73.899494c-98.532758,-73.899494 -20.034994,-131.376878 0,-73.899494z" />
+    </svg>
+    <p>Conflict</p>
+    <svg (click)="clickSvg($event)" id="square" width="100" height="100">
+
+      <path d=" M 10 25 L 10 75 L 60 75 L 60 25 L 10 25" stroke="darkred" opacity="0.5" id="square" stroke-width="2"
+        fill="darkred" />
+
+    </svg>
+    <br />
+    <p>Suspense</p>
+    <svg (click)="clickSvg($event)" width="100" height="100" id="rectangle">
+      <g>
+        <path d=" M 10 25
+                L 10 75
+                L 80 75
+                L 80 25
+                L 10 25"
+          stroke="blue" stroke-width="2" id="rectangle" fill="blue" opacity="0.5" />
+      </g>
+    </svg>
+    <p>Fear</p>
+    <svg (click)="clickSvg($event)" id="circle" width="100" height="100">
+      <circle cx="40" cy="50" r="30" style="fill:indianred" stroke="indianred" id="circle" stroke-width="2" opacity="0.3"></circle>
+    </svg>
+  </div>
+
+</mat-expansion-panel>

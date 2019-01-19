@@ -1,0 +1,18 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ title }} </mat-panel-title>
+    <mat-icon>color_lens</mat-icon>
+  </mat-expansion-panel-header>
+
+  <form [formGroup]="colorForm" (ngSubmit)="onSubmit()">
+    <label>Character Name:</label><br />
+    <input type="text" formControlName="character" /><br />
+    <label>Color: </label><br />
+    <input
+      [(colorPicker)]="color"
+      [style.background]="color"
+      formControlName="color"
+    /><br />
+    <button type="submit">Change</button>
+  </form>
+</mat-expansion-panel>
